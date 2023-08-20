@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+    width: 100vw;
+    overflow-x: hidden;
 }
+
+.animate{
+    transition: all;
+    transition-duration: 1s;
+}
+.animate:hover{
+    transform: scale(1.1);
+}
+.move{ 
+    animation-name: slide;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.move:hover{
+    animation-play-state: paused;
+}
+ @keyframes slide{
+    100%{
+        transform: translateX(calc(-200px*12));
+    }
+    0%{
+        transform: translateX(calc(+200px*3));
+    }
+ }
+
+ .agentimage{
+    transition:transform;
+    transition-duration: 1s;
+}
+.agentimage:hover{
+
+    transform: scale(0.7);
+
+}
+
+.spinner {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:conic-gradient(#0000 10%,#766DF4);
+    -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation:s3 0.5s infinite linear;
+  }
+  @keyframes s3 {to{transform: rotate(1turn)}}
